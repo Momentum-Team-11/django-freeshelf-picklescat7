@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="book-list">
+    <h1>Your Freeshelf Books</h1>
+</br>
+<div class="flex flex-wrap">
+{% for book in books %}
+  <div class="w-33 pa3">  
+        
+        <h2><a href="{% url 'book_detail' pk=book.pk%}">{{ book.title }}</a></h2>
+        <p>{{ book.author }}</p>
+        <p>Added: {{ book.created_date }}</p>
+        <p>{{ book.description|linebreaksbr }}</p>
+				<button type="submit">{{ category.name }}</button>
+  </br>
+  </div>
+</section> 
+{% endblock content %} -->

@@ -40,6 +40,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "registration",  #has to go above django.contrib.admin
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -48,7 +49,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     "debug_toolbar",
-    "books",
+    "books", 
 ]
 
 MIDDLEWARE = [
@@ -115,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "EST"
 
 USE_I18N = True
 
@@ -135,3 +136,8 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "books.User"
+
+ACCOUNT_ACTIVATION_DAYS = 7
+#REGISTRATION_AUTO_LOGIN = True # Hmm do I need this?
+LOGIN_REDIRECT_URL = "/"
+SIMPLE_BACKEND_REDIRECT_URL = "/"

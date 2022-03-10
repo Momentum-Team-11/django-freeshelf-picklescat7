@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1> {{ category.name }} </h1>
+</br>
+{% for book in books %}
+<div class="album mv3 ba b--light-silver pa1"> 
+    <h2>{{ book.title }}</h2>
+    <h3>{{ book.author }}</h3>
+    <h3>{{ book.description }}</h3>
+    </br>
+</div>
+{% empty %}
+<p>Sorry, no books in that category!</p>
+{% endfor %}
+
+
+
+{% endblock content %}

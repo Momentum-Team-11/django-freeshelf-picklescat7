@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>  
+    {% if book.created_date %}
+        <time class="date">
+            Added: {{ book.created_date }}
+        </time>
+    {% endif %}
+    <h2>{{ book.title }}</h2>
+    <h3> {{ book.author}}</h3>
+    <p>{{ book.description|linebreaksbr }}</p>
+    <p>{{ category.name }}</p>
+    {% for category in categorys %}
+        <p>{{ category.name }}</p>
+    {% endfor %}
+
+    <div>
+        <a href={% url 'edit_book' pk=book.pk%} edit</a>
+        <a href={% url 'delete_book' pk=book.pk%} delete</a>
+    </div>
+</div>
+
+{% endblock %}

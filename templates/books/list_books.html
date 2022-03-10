@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Your Freeshelf Books</h1>
+<div class="flex-wrap">
+  <h4>Filter by Category:</h4>
+  {% for category in categorys %}
+  <a href="{% url 'show_category' slug=category.slug %}"><button type="submit">{{ category.name }} </button></a>
+  {% endfor %}
+  </div>
+</br>
+<section class="book-list">
+
+<div class="flex flex-wrap">
+{% for book in books %}
+  <div class="w-33 pa3">  
+        
+        <h2><a href="{% url 'book_detail' pk=book.pk%}">{{ book.title }}</a></h2>
+        <p>{{ book.author }}</p>
+        <p>Added: {{ book.created_date }}</p>
+        </br>
+{% endfor %}
+  
+</section> 
+
+{% endblock %} 
